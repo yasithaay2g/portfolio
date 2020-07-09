@@ -20,11 +20,18 @@ class Portfolio extends Model
 
     ];
 
-    public function image()
+    public function Thumb_image()
     {
 
         return $this->belongsTo('App\Image','Thumb_id');
     }
+
+    public function banner_image()
+    {
+
+        return $this->belongsTo('App\Image','banner_id');
+    }
+
 
 
 }

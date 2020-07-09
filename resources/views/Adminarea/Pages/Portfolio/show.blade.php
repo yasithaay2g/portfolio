@@ -14,10 +14,17 @@
             <div class="row align-items-center py-4">
                 <div class="col-lg-6 col-7">
                     <h6 class="h2 text-white d-inline-block mb-0">Manage Portfolio</h6>
+                    <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                        <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                            <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="/admin/showPort">Portfolio</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">View Portfolio</li>
+                        </ol>
+                    </nav>
 
                 </div>
                 <div class="col-lg-6 col-5 text-right">
-                    <a href="/admin/addPort" class="btn btn-sm btn-neutral">Add Portfolio</a>
+                    <a href="/admin/addPort" class="btn btn-neutral">Add Portfolio</a>
 
                 </div>
             </div>
@@ -48,12 +55,13 @@
                 </div>
                 <!-- Light table -->
                 <div class="table-responsive">
-                    <table class="table align-items-center table-flush">
+                    <table id="datatableid" class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col" class="sort" data-sort="name">#</th>
                                 <th scope="col" class="sort" data-sort="budget">Title</th>
                                 <th scope="col" class="sort" data-sort="budget">Thumbnail</th>
+                                <th scope="col" class="sort" data-sort="budget">Banner Image</th>
 
                                 <th scope="col" class="sort" data-sort="status">Status</th>
                                 <th scope="col">Create Date</th>
@@ -77,10 +85,14 @@
                                     {{$pro->title}}
                                 </td>
 
-                                <td> <img src='{{ asset('public/uploads/'.$pro->image->name) }}'  width="75px" height="75px"  class="rounded z-depth-3"></td>
+                                <td> <img src='{{ asset('public/uploads/'.$pro->Thumb_image->name) }}'  width="75px" height="75px"  class="rounded z-depth-3"></td>
+
+
+                                <td> <img src='{{ asset('public/uploads/'.$pro->banner_image->name) }}'  width="75px" height="75px"  class="rounded z-depth-3"></td>
+
                                 <td>
 
-                            <input type="checkbox" data-id="{{$pro->id}}" class="toggle-class" data-toggle="toggle" data-on="Show" data-off="Hide" data-onstyle="success" data-offstyle="danger" {{ $pro->status ? 'checked' : '' }}>
+                            <input type="checkbox" data-id="{{$pro->id}}" class="toggle-class" data-toggle="toggle" data-on="Show" data-off="Hide" data-onstyle="primary" data-offstyle="danger" {{ $pro->status ? 'checked' : '' }}>
 
                                 </td>
                                 <td>
@@ -97,7 +109,7 @@
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
 
                                         <a class="dropdown-item" href="{{route('admin-edit',$pro->id)}}">
-                                        <i class="fas fa-user-edit text-warning"></i>&nbsp;Edit
+                                        <i class="fas fa-user-edit text-primary"></i>&nbsp;Edit
                                         </a>
 
 
@@ -106,7 +118,7 @@
                                             {{csrf_field()}}
                                             {{method_field('DELETE')}}
                                             <button class="dropdown-item" type="submit">
-                                                <i class="fas fa-users text-primary"></i>&nbsp;Delete
+                                                <i class="fas fa-users text-danger"></i>&nbsp;Delete
                                             </button>
                                         </form>
 
@@ -122,33 +134,22 @@
                                 @endforeach
                         </tbody>
                     </table>
+                    <table cellspacing="0" cellpadding="0" border="0">
+                        <tbody>
+                        <tr>
+                            <td class="gutter">
+                                <div class="line number1 index0 alt2" style="display: none;">1</div>
+                            </td>
+                            <td class="code">
+                                <div class="container" style="display: none;">
+                                    <div class="line number1 index0 alt2" style="display: none;">&nbsp;</div>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <!-- Card footer -->
-                <div class="card-footer py-4">
-                    <nav aria-label="...">
-                        <ul class="pagination justify-content-end mb-0">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1">
-                                    <i class="fas fa-angle-left"></i>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                            </li>
-                            <li class="page-item active">
-                                <a class="page-link" href="#">1</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">
-                                    <i class="fas fa-angle-right"></i>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
+
             </div>
         </div>
     </div>
@@ -166,6 +167,18 @@
 
 
 @section('js')
+
+
+<!-- data table-->
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+<script>
+    $(document).ready(function() {
+
+        $('#datatableid').DataTable();
+
+    });
+</script>
 
 
 

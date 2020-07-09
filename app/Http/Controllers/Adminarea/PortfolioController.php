@@ -9,6 +9,11 @@ use App\Http\Requests\PortRequest;
 
 class PortfolioController extends ParentController
 {
+    /**
+     * PortIndex
+     *
+     * @return void
+     */
     public function PortIndex()
     {
 
@@ -17,8 +22,9 @@ class PortfolioController extends ParentController
     }
 
 
+
     /**
-     * packeageStore
+     * PortStore
      *
      * @param  mixed $request
      * @return void
@@ -29,7 +35,8 @@ class PortfolioController extends ParentController
 
         PortfolioFacade::Store($request);
 
-        return redirect('/admin/addPort')->with('success','Add successfully');
+
+        return redirect('/admin/showPort')->with('success', ' Create successfully');
     }
 
     /**
@@ -46,8 +53,9 @@ class PortfolioController extends ParentController
 
 
 
+
     /**
-     * packeageEdit
+     * PortEdit
      *
      * @param  mixed $id
      * @return void
@@ -88,6 +96,12 @@ class PortfolioController extends ParentController
     }
 
 
+    /**
+     * changePortStatus
+     *
+     * @param  mixed $request
+     * @return void
+     */
     public function changePortStatus(Request $request)
     {
 

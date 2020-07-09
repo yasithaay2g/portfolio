@@ -17,10 +17,17 @@
             <div class="row align-items-center py-4">
                 <div class="col-lg-6 col-7">
                     <h6 class="h2 text-white d-inline-block mb-0">Add Portfolio</h6>
+                    <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                        <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                            <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="/admin/showPort">Portfolio</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Add Portfolio</li>
+                        </ol>
+                    </nav>
 
                 </div>
                 <div class="col-lg-6 col-5 text-right">
-                    <a href="/admin/showPort" class="btn btn-sm btn-neutral">Manage Portfolio</a>
+                    <a href="/admin/showPort" class="btn btn-neutral">Manage Portfolio</a>
 
                 </div>
             </div>
@@ -92,7 +99,7 @@
 
 
                          <div class="custom-file">
-                            <input type="file" name="thumb" accept=".jpg, .jpeg, .png" class="custom-file-input" id="customFileLang" lang="en">
+                            <input type="file" name="thumb" accept=".jpg, .jpeg, .png" required class="custom-file-input" id="customFileLang" lang="en">
                             <label class="custom-file-label" for="customFileLang">Select file</label>
                         </div>
                     </div><br>
@@ -107,7 +114,7 @@
 
 
                         <div class="custom-file">
-                            <input type="file" name="banner" accept=".jpg, .jpeg, .png" class="custom-file-input" id="customFileLang" lang="en">
+                            <input type="file" name="banner" accept=".jpg, .jpeg, .png" required class="custom-file-input" id="customFileLang" lang="en">
                             <label class="custom-file-label" for="customFileLang">Select file</label>
                         </div>
                     </div><br>
@@ -191,8 +198,8 @@
               </div>
 
               <div class="col-4 text-center">
-                <button type="submit" class="btn btn-sm btn-primary">Submit</button>
-                <a href="#!" class="btn btn-sm btn-danger">Back</a>
+                <button type="submit" class="btn  btn-primary">Submit</button>
+                <a href="#!" class="btn btn-danger">Back</a>
               </div>
             </form>
 

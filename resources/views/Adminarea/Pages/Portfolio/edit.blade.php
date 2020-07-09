@@ -11,6 +11,13 @@
             <div class="row align-items-center py-4">
                 <div class="col-lg-6 col-7">
                     <h6 class="h2 text-white d-inline-block mb-0">Edit Portfolio</h6>
+                    <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                        <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                            <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="/admin/showPort">Portfolio</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Edit Portfolio</li>
+                        </ol>
+                    </nav>
 
                 </div>
                 <div class="col-lg-6 col-5 text-right">
@@ -65,6 +72,7 @@
                     <div class="form-group">
                       <label class="form-control-label" for="input-username">Title </label>
                       <input type="text" id="input-username" name="title" class="form-control @error('title') is-invalid @enderror" placeholder="Title" value="{{$pro->title}}">
+
                          @error('title')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -86,8 +94,9 @@
 
 
                            <div class="custom-file">
-                              <input type="file" name="thumb" accept=".jpg, .jpeg, .png" class="custom-file-input" id="customFileLang" lang="en">
+                              <input type="file" name="thumb" accept=".jpg, .jpeg, .png" required class="custom-file-input" id="customFileLang" lang="en" value="{{$pro->Thumb_image->name}}"  onchange="readImageURL(this);">
                               <label class="custom-file-label" for="customFileLang">Select file</label>
+
                           </div>
                       </div><br>
                     </div>
@@ -101,7 +110,7 @@
 
 
                           <div class="custom-file">
-                              <input type="file" name="banner" accept=".jpg, .jpeg, .png" class="custom-file-input" id="customFileLang" lang="en">
+                              <input type="file" name="banner" required accept=".jpg, .jpeg, .png" class="custom-file-input" id="customFileLang" lang="en" value="{{ $pro->banner_image->name }}">
                               <label class="custom-file-label" for="customFileLang">Select file</label>
                           </div>
                       </div><br>
@@ -110,29 +119,8 @@
 
                 </div>
 
-                <hr class="my-4" />
 
 
-                <div class="pl-lg-4">
-
-                  <div class="row">
-
-                    <div class="col-lg-12">
-                      <div class="form-group">
-                          <label class="form-control-label" for="image" >Other Pictures :</label>
-
-
-                          <div class="custom-file">
-                              <input type="file" name="multi" accept=".jpg, .jpeg, .png" class="custom-file-input" id="customFileLang" lang="en">
-                              <label class="custom-file-label" for="customFileLang">Select file</label>
-                          </div>
-                      </div><br>
-
-                      </div>
-                    </div>
-
-
-                  </div>
 
 
               <hr class="my-4" />
@@ -140,7 +128,7 @@
               <div class="pl-lg-4">
                 <div class="form-group">
                   <label class="form-control-label">Impact</label>
-                  <textarea  name="impactt" rows="4" class="form-control @error('impact') is-invalid @enderror " placeholder="Impact">{{$pro->impact}}</textarea>
+                  <textarea  name="impact" rows="4" class="form-control @error('impact') is-invalid @enderror " placeholder="Impact">{{$pro->impact}}</textarea>
                   @error('impact')
                   <div class="alert alert-danger">{{ $message }}</div>
               @enderror
@@ -183,8 +171,8 @@
               </div>
 
               <div class="col-4 text-center">
-                <button type="submit" class="btn btn-sm btn-primary">Submit</button>
-                <a href="#!" class="btn btn-sm btn-danger">Back</a>
+                <button type="submit" class="btn  btn-primary">Submit</button>
+                <a href="#!" class="btn btn-danger">Back</a>
               </div>
             </form>
           </div>
