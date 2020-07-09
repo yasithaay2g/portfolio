@@ -129,7 +129,7 @@
 
 
                         <div class="custom-file">
-                            <input type="file" name="multi" accept=".jpg, .jpeg, .png" class="custom-file-input" id="customFileLang" lang="en">
+                            <input type="file" name="multi[]" accept=".jpg, .jpeg, .png" class="custom-file-input" id="customFileLang" lang="en" multiple>
                             <label class="custom-file-label" for="customFileLang">Select file</label>
                         </div>
                     </div><br>

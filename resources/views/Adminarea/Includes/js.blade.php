@@ -9,3 +9,4 @@
     <script src="{{ asset('Adminarea/vendor/chart.js/dist/Chart.extension.js') }}"></script>
     <!-- Argon JS -->
     <script src="{{ asset('Adminarea/js/argon.js?v=1.2.0') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

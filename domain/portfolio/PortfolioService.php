@@ -35,27 +35,6 @@ class PortfolioService
     {
 
 
-        /*$input=$request->all();
-        $multi=array();
-
-        if($files=$request->file('multi')){
-            foreach($files as $file){
-                $name=$file->getClientOriginalName();
-                $file->move('mult',$name);
-                $multi[]=$name;
-            }
-        }*/
-
-
-        foreach ($request->file('multi') as $index => $item) {
-            $path = $request->files[$index]->store('name');
-        }
-
-       /* $this->Img ->insert( [
-            'name'=>  implode("|",$multi),
-
-
-        ]);*/
 
         if ($request->has('thumb')) {
             $Thumb = ImagesFacade::up($request->file('thumb'), [2, 12, 9, 10, 13, 14]);
@@ -87,6 +66,31 @@ class PortfolioService
             $this->galleryImg ->image_id = $multiple->id;
 
             $this->galleryImg->save();
+
+            foreach ($request->file('multi') as $index => $item) {
+            $path = $request->files[$index]->store('name');
+        }
+
+                    /*$input=$request->all();
+        $multi=array();
+
+        if($files=$request->file('multi')){
+            foreach($files as $file){
+                $name=$file->getClientOriginalName();
+                $file->move('mult',$name);
+                $multi[]=$name;
+            }
+        }/*
+
+
+
+
+       /* $this->Img ->insert( [
+            'name'=>  implode("|",$multi),
+
+
+        ]);*/
+
 
     }
 
@@ -149,6 +153,8 @@ class PortfolioService
         $pro->status = $request->status;
         $pro->save();
     }
+
+
 
     public function viewhome()
     {
