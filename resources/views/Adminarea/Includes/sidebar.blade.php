@@ -24,7 +24,7 @@
             <hr class="my-3">
             <li class="nav-item">
               <a class="nav-link" href="/admin/showPort">
-                <i class="ni ni-planet text-orange"></i>
+                <i class="ni ni-album-2 text-orange"></i>
                 <span class="nav-link-text">Portfolio</span>
               </a>
             </li>

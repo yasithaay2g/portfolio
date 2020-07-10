@@ -21,7 +21,7 @@
 
                 </div>
                 <div class="col-lg-6 col-5 text-right">
-                    <a href="/admin/showPort" class="btn btn-sm btn-neutral">Manage Portfolio</a>
+                    <a href="/admin/showPort" class="btn btn-neutral"> <i class="ni ni-settings text-danger"></i>&nbsp;Manage Portfolio</a>
 
                 </div>
             </div>
@@ -94,8 +94,9 @@
 
 
                            <div class="custom-file">
-                              <input type="file" name="thumb" accept=".jpg, .jpeg, .png" required class="custom-file-input" id="customFileLang" lang="en" value="{{$pro->Thumb_image->name}}"  onchange="readImageURL(this);">
-                              <label class="custom-file-label" for="customFileLang">Select file</label>
+
+                              <input type="file" id="dropify" required accept="image/x-png,image/gif,image/jpeg" name="thumb"
+                            data-default-file="{{ $pro->Thumb_image?asset('public/uploads/'.$pro->Thumb_image->name):asset('img/no.jpeg') }}">
 
                           </div>
                       </div><br>
@@ -110,8 +111,10 @@
 
 
                           <div class="custom-file">
-                              <input type="file" name="banner" required accept=".jpg, .jpeg, .png" class="custom-file-input" id="customFileLang" lang="en" value="{{ $pro->banner_image->name }}">
-                              <label class="custom-file-label" for="customFileLang">Select file</label>
+
+
+                              <input type="file" id="dropify2" required accept="image/x-png,image/gif,image/jpeg" name="banner"
+                              data-default-file="{{ $pro->banner_image?asset('public/uploads/'.$pro->banner_image->name):asset('img/no.jpeg') }}">
                           </div>
                       </div><br>
                     </div>
@@ -181,5 +184,19 @@
     </div>
 
   </div>
+
+@endsection
+
+@section('js')
+
+<script>
+$('#dropify').dropify();
+
+</script>
+
+<script>
+    $('#dropify2').dropify();
+
+    </script>
 
 @endsection

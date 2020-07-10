@@ -1,7 +1,7 @@
 <nav id="navbar-main" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light">
     <div class="container">
-      <a class="navbar-brand" href="dashboard.html">
-        <img src="{{ asset('Adminarea/img/brand/blue1.png') }}" width="80px" height="80px">
+      <a class="navbar-brand" href="dashboard.html"><h2>PORTFOLIO</h2>
+        <!--<img src="" width="80px" height="80px">-->
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

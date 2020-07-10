@@ -1,13 +1,6 @@
 @extends('Adminarea/Layouts/app')
 
 
-@section('css')
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.css">
-
-<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link type="text/css" rel="stylesheet" href="http://example.com/image-uploader.min.css">
-@endsection
 
 
 @section('gellary')
@@ -27,7 +20,7 @@
 
                 </div>
                 <div class="col-lg-6 col-5 text-right">
-                    <a href="/admin/showPort" class="btn btn-neutral">Manage Portfolio</a>
+                    <a href="/admin/showPort" class="btn btn-neutral"> <i class="ni ni-settings text-danger"></i>&nbsp;Manage Portfolio</a>
 
                 </div>
             </div>
@@ -99,8 +92,8 @@
 
 
                          <div class="custom-file">
-                            <input type="file" name="thumb" accept=".jpg, .jpeg, .png" required class="custom-file-input" id="customFileLang" lang="en">
-                            <label class="custom-file-label" for="customFileLang">Select file</label>
+                            <input type="file" id="dropify" required accept="image/x-png,image/gif,image/jpeg" name="thumb"
+                            data-default-file="">
                         </div>
                     </div><br>
                   </div>
@@ -114,8 +107,9 @@
 
 
                         <div class="custom-file">
-                            <input type="file" name="banner" accept=".jpg, .jpeg, .png" required class="custom-file-input" id="customFileLang" lang="en">
-                            <label class="custom-file-label" for="customFileLang">Select file</label>
+
+                            <input type="file" id="dropify2" required accept="image/x-png,image/gif,image/jpeg" name="banner"
+                            data-default-file="">
                         </div>
                     </div><br>
                   </div>
@@ -132,13 +126,14 @@
 
                   <div class="col-lg-12">
                     <div class="form-group">
-                        <label class="form-control-label" for="image">Other Pictures :</label>
+                        <div class="input-images">
+
+                             <div class="input-field">
+                                     <label class="active">Other Images</label>
+                                    <div class="input-images-2" style="padding-top: .5rem;"></div>
+                            </div>
 
 
-                        <div class="custom-file">
-                            <input type="file" name="multi[]" accept=".jpg, .jpeg, .png" class="custom-file-input" id="customFileLang" lang="en" multiple>
-                            <label class="custom-file-label" for="customFileLang">Select file</label>
-                        </div>
                     </div><br>
 
                     </div>
@@ -216,15 +211,30 @@
 
 <script>
 
-$('#dropify').dropify();
-</script>
-
-<script type="text/javascript" src="http://example.com/jquery.min.js"></script>
-<script type="text/javascript" src="http://example.com/image-uploader.min.js"></script>
 
 
+        let preloaded = [
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.js"></script>
+            ];
+
+        $('.input-images-2').imageUploader({
+    preloaded: preloaded,
+    imagesInputName: 'multi',
+    preloadedInputName: 'old'
+    });
+    </script>
+
+<script>
+    $('#dropify').dropify();
+
+    </script>
+
+<script>
+    $('#dropify2').dropify();
+
+    </script>
+
+
 
 
 
